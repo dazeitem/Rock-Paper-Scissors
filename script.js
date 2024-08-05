@@ -52,22 +52,25 @@ function playRound(computerChoice, humanChoice) {
 }
 
 function playGame() {
-    let humanScore = 0
-    let computerScore = 0
 
     for(let i = 0; i < 5; i++) {
         playRound(computerChoice = getComputerChoice(), humanChoice = getHumanChoice())
     }
 
     if (humanScore > computerScore) {
-        console.log(`You won by ${humanScore - computerScore} games. You win.`)
+        console.log(`You won by ${humanScore - computerScore} rounds.`)
     } else if (humanScore < computerScore) {
-        console.log("You lose.")
+        console.log(`You lose by ${computerScore - humanScore} rounds.`)
     } else {
         console.log("Uhhh— Let's play again, I guess.")
     }
 }
 
-while (true) {
-    playGame()
+let continuePlaying = true
+while (continuePlaying) { // main function run 
+    playGame();
+    continuePlaying = prompt(`Type "no" if you want to stop playing.`).toLowerCase() !== "no"
+    if (continuePlaying == "no") {
+        break
+    };
 }
