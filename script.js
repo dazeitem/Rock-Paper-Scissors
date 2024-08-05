@@ -1,14 +1,11 @@
 const choices = ["rock", "paper", "scissors"]
 
-let humanScore = 0
-let computerScore = 0
-
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
 function getHumanChoice() {
-    return prompt("Rock, Paper or Scissors?").toLowerCase
+    return prompt("Rock, Paper or Scissors?").toLowerCase()
 }
 
 function playRound(computerChoice, humanChoice) {
@@ -18,24 +15,47 @@ function playRound(computerChoice, humanChoice) {
     switch (humanChoice) {
         case "rock":
             if (computerChoice == "paper") {
-                console.log("You lose.")
+                console.log("You lose.");
+                computerScore ++;
             } else if (computerChoice == "scissors") {
-                console.log("You win.")
+                console.log("You win.");
+                humanScore ++;
             }
         case "paper":
             if (computerChoice == "rock") {
-                console.log("You win.")
+                console.log("You win.");
+                humanScore ++;
             } else if (computerChoice == "scissors") {
-                console.log("You lose.")
+                console.log("You lose.");
+                computerScore ++;
             }
         case "scissors":
             if (computerChoice == "paper") {
-                console.log("You win.")
+                console.log("You win.");
+                humanScore ++;
             } else if (computerChoice == "rock") {
-                console.log("You lose.")
+                console.log("You lose.");
+                computerScore ++;
             }
         default:
-            console.log("Draw.")
+            console.log("Draw.");
 
+    }
+}
+
+function playGame() {
+    let humanScore = 0
+    let computerScore = 0
+
+    for(let i = 0; i < 5; i++) {
+        playRound(computerChoice = getComputerChoice(), humanChoice = getHumanChoice())
+    }
+
+    if (humanScore > computerScore) {
+        console.log("You win.")
+    } else if (humanScore < computerScore) {
+        console.log("You lose.")
+    } else {
+        console.log("uhhhmmmm")
     }
 }
