@@ -52,10 +52,10 @@ function playGame() {
     }
 
     if (humanScore > computerScore) {
-        console.log("You win.")
+        console.log(`You won by ${humanScore - computerScore} games. You win.`)
     } else if (humanScore < computerScore) {
         console.log("You lose.")
     } else {
-        console.log("uhhhmmmm")
+        console.log("Uhhh— Let's play again, I guess.")
     }
 }
