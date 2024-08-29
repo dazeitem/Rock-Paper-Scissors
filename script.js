@@ -14,40 +14,14 @@ function playRound(computerChoice, humanChoice) {
     /*
     Controls the flow of each round.
     */
-    switch (humanChoice) {
-        case "rock":
-            if (computerChoice == "paper") {
-                console.log("You lose.");
-                computerScore ++;
-                break;
-            } else if (computerChoice == "scissors") {
-                console.log("You win.");
-                humanScore ++;
-                break;
-            }
-        case "paper":
-            if (computerChoice == "rock") {
-                console.log("You win.");
-                humanScore ++;
-                break;
-            } else if (computerChoice == "scissors") {
-                console.log("You lose.");
-                computerScore ++;
-                break;
-            }
-        case "scissors":
-            if (computerChoice == "paper") {
-                console.log("You win.");
-                humanScore ++;
-                break;
-            } else if (computerChoice == "rock") {
-                console.log("You lose.");
-                computerScore ++;
-                break;
-            }
-        default:
-            console.log("Draw.");
-
+    if ((humanChoice == "rock" && computerChoice == "scissors") ||
+        (humanChoice == "paper" && computerChoice == "rock") ||
+        (humanChoice == "scissors" && computerChoice == "paper")) {
+        humanScore++
+    } else if (humanChoice == computerChoice) {
+        "Draw"
+    } else {
+        computerScore++
     }
 }
 
