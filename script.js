@@ -17,11 +17,7 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
-function getHumanChoice() {
-    return prompt("Rock, Paper or Scissors?").toLowerCase()
-}
-
-function playRound(computerChoice, humanChoice) {
+function playRound(computerChoice = getComputerChoice()) {
     /*
     Controls the flow of each round.
     */
