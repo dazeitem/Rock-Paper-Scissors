@@ -5,8 +5,10 @@ let computerScore = 0;
 let playerSelection = '';
 
 // Create score screen
-let playerScreen = document.querySelector("#playerScore")
-let computerScreen = document.querySelector("#computerScore")
+let playerScreen = document.querySelector("#playerScore");
+let computerScreen = document.querySelector("#computerScore");
+let winnerScreen = document.querySelector(".winner");
+let mainScreen = document.querySelector(".screen")
 
 // Import buttons
 const btns = document.querySelectorAll(".btn");
@@ -38,6 +40,15 @@ function playRound(computerChoice = getComputerChoice()) {
     };
 
     // updates scores
-    playerScreen.textContent = `Player score: ${playerScore}`
-    computerScreen.textContent = `Computer score: ${computerScore}`
+    playerScreen.textContent = `Player score: ${playerScore}`;
+    computerScreen.textContent = `Computer score: ${computerScore}`;
+
+    // Check for winner
+    if (playerScore > 4) {
+        winnerScreen.textContent = "You win!";
+        return;
+    } else if (computerScore > 4) {
+        winnerScreen.textContent = "You lost ;(";
+        return;
+    };
 };
