@@ -4,7 +4,11 @@ let playerScore = 0;
 let computerScore = 0;
 let playerSelection = '';
 
-// Import screen & buttons
+// Create score screen
+let playerScreen = document.querySelector("#playerScore")
+let computerScreen = document.querySelector("#computerScore")
+
+// Import buttons
 const btns = document.querySelectorAll(".btn");
 document.addEventListener("click", (e) => {
     playerSelection = e.target.id
@@ -30,15 +34,10 @@ function playRound(computerChoice = getComputerChoice()) {
     } else if (playerSelection == computerChoice) {
         "Draw";
     } else {
-        console.log("Uhhh— Let's play again, I guess.")
-    }
-}
-
-let continuePlaying = true
-while (continuePlaying) { // main function run 
-    playGame();
-    continuePlaying = prompt(`Type "no" if you want to stop playing.`).toLowerCase() !== "no"
-    if (continuePlaying == "no") {
-        break
+        computerScore++;
     };
-}
+
+    // updates scores
+    playerScreen.textContent = `Player score: ${playerScore}`
+    computerScreen.textContent = `Computer score: ${computerScore}`
+};
