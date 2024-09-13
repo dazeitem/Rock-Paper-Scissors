@@ -1,7 +1,18 @@
-const choices = ["rock", "paper", "scissors"]
-let humanScore = 0
-let computerScore = 0
+// Initialize variables
+const choices = ["rock", "paper", "scissors"];
+let playerScore = 0;
+let computerScore = 0;
+let playerSelection = '';
 
+// Import screen & buttons
+const btns = document.querySelectorAll(".btn");
+document.addEventListener("click", (e) => {
+    playerSelection = e.target.id
+    playRound()
+    playerSelection = ''
+});
+
+// generates choice via random method
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
