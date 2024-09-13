@@ -21,27 +21,14 @@ function playRound(computerChoice = getComputerChoice()) {
     /*
     Controls the flow of each round.
     */
-    if ((humanChoice == "rock" && computerChoice == "scissors") ||
-        (humanChoice == "paper" && computerChoice == "rock") ||
-        (humanChoice == "scissors" && computerChoice == "paper")) {
-        humanScore++
-    } else if (humanChoice == computerChoice) {
-        "Draw"
-    } else {
-        computerScore++
-    }
-}
 
-function playGame() {
-
-    for(let i = 0; i < 5; i++) {
-        playRound(computerChoice = getComputerChoice(), humanChoice = getHumanChoice())
-    }
-
-    if (humanScore > computerScore) {
-        console.log(`You won by ${humanScore - computerScore} rounds.`)
-    } else if (humanScore < computerScore) {
-        console.log(`You lose by ${computerScore - humanScore} rounds.`)
+    // game logic
+    if ((playerSelection == "rock" && computerChoice == "scissors") ||
+        (playerSelection == "paper" && computerChoice == "rock") ||
+        (playerSelection == "scissors" && computerChoice == "paper")) {
+        playerScore++;
+    } else if (playerSelection == computerChoice) {
+        "Draw";
     } else {
         console.log("Uhhh— Let's play again, I guess.")
     }
